@@ -25,3 +25,41 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+    // Android system version
+    minSdkVersion = 21
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.2'
+
+    // Design
+    supportLibraryVersion = '27.0.0'
+
+    // RxJava
+    rxJavaVersion = '2.1.6'
+    rxAndroidVersion = '2.0.1'
+
+    // Dagger
+    daggerVersion = '2.13'
+
+    // ButterKnife
+    butterKnifeVersion = '8.8.1'
+
+    // Retrofit
+    retrofitVersion = '2.3.0'
+
+    // OkHttp
+    okHttpLoggingVersion = '3.8.1'
+
+    // Parceler
+    parcelerVersion = '1.1.9'
+
+    // Timber - logging
+    timberVersion = '4.5.1'
+
+    // Testing
+    junitVersion = '4.12'
+    mockitoVersion = '1.10.19'
+
+}
