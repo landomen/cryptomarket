@@ -1,7 +1,9 @@
-package si.lanisnik.cryptomarket;
+package si.lanisnik.cryptomarket.ui.list;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import si.lanisnik.cryptomarket.R;
 
 public class CryptoListActivity extends AppCompatActivity {
 
