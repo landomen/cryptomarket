@@ -19,7 +19,7 @@ public interface CurrencyService {
                                                @Query("convert") String currency);
 
     @GET("ticker/{id}/")
-    Single<CurrencyDto> getCurrency(@Path("id") String id,
+    Single<List<CurrencyDto>> getCurrency(@Path("id") String id,
                                     @Query("convert") String currency);
 
 }

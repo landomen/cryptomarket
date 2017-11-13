@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
+
     defaultConfig {
         applicationId "si.lanisnik.cryptomarket"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -10,11 +11,25 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        develop {
+            buildConfigField "String", "SERVER_BASE_URL", '"https://api.coinmarketcap.com/v1/"'
+            versionNameSuffix "-DEV"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
