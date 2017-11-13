@@ -1,4 +1,4 @@
-package si.lanisnik.cryptomarket.data.remote.model;
+package si.lanisnik.cryptomarket.data.source.remote.model;
 
 import com.google.gson.annotations.SerializedName;
 

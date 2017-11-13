@@ -7,7 +7,7 @@ import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
 import dagger.android.DaggerApplication;
-import si.lanisnik.cryptomarket.data.remote.NetModule;
+import si.lanisnik.cryptomarket.data.source.remote.NetModule;
 import si.lanisnik.cryptomarket.di.scopes.PerApplication;
 
 /**

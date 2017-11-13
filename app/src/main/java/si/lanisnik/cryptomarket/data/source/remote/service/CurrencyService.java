@@ -1,4 +1,4 @@
-package si.lanisnik.cryptomarket.data.remote.service;
+package si.lanisnik.cryptomarket.data.source.remote.service;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import io.reactivex.Single;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-import si.lanisnik.cryptomarket.data.remote.model.CurrencyDto;
+import si.lanisnik.cryptomarket.data.source.remote.model.CurrencyDto;
 
 /**
  * Created by Domen Lanišnik on 13/11/2017.

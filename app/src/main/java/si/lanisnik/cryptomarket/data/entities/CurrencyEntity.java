@@ -28,7 +28,31 @@ public class CurrencyEntity {
     private String percentChange1h;
     private String percentChange24h;
     private String percentChange7d;
-    private String lastUpdated;
+
+    public CurrencyEntity() {
+    }
+
+    public CurrencyEntity(String id, String name, String symbol, String rank, String priceUsd, String priceBtc, String priceEur, String priceCny, String volume24hUsd, String volume24hEur, String volume24hCny, String marketCapUsd, String marketCapEur, String marketCapCny, String availableSupply, String totalSupply, String percentChange1h, String percentChange24h, String percentChange7d) {
+        this.id = id;
+        this.name = name;
+        this.symbol = symbol;
+        this.rank = rank;
+        this.priceUsd = priceUsd;
+        this.priceBtc = priceBtc;
+        this.priceEur = priceEur;
+        this.priceCny = priceCny;
+        this.volume24hUsd = volume24hUsd;
+        this.volume24hEur = volume24hEur;
+        this.volume24hCny = volume24hCny;
+        this.marketCapUsd = marketCapUsd;
+        this.marketCapEur = marketCapEur;
+        this.marketCapCny = marketCapCny;
+        this.availableSupply = availableSupply;
+        this.totalSupply = totalSupply;
+        this.percentChange1h = percentChange1h;
+        this.percentChange24h = percentChange24h;
+        this.percentChange7d = percentChange7d;
+    }
 
     public String getId() {
         return id;
@@ -106,7 +130,4 @@ public class CurrencyEntity {
         return percentChange7d;
     }
 
-    public String getLastUpdated() {
-        return lastUpdated;
-    }
 }
