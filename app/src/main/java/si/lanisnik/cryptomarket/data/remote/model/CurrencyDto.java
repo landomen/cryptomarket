@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by Domen Lanišnik on 13/11/2017.
  * domen.lanisnik@gmail.com
  */
-public class CurrentyDto {
+public class CurrencyDto {
     @SerializedName("id")
     private String id;
 
