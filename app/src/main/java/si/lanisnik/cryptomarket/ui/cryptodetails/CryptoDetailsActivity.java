@@ -129,6 +129,12 @@ public class CryptoDetailsActivity extends AppCompatActivity implements CryptoDe
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        presenter.destroy();
+        super.onDestroy();
+    }
+
     private void initPresenter() {
         CryptoCurrency cryptoCurrency = Parcels.unwrap(getIntent().getParcelableExtra(EXTRA_CRYPTO_CURRENCY));
         presenter.setView(this);

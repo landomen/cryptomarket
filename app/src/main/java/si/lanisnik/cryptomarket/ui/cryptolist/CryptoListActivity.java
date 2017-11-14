@@ -125,6 +125,12 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onDestroy() {
+        presenter.destroy();
+        super.onDestroy();
+    }
+
     private void initPresenter() {
         presenter.setView(this);
         presenter.initialize();
