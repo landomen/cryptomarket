@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">CryptoMarket</string>
+
+    <string name="name">Name:</string>
+    <string name="rank">Rank:</string>
+    <string name="symbol">Symbol:</string>
+    <string name="price_fiat">Price (%s):</string>
+    <string name="price_btc">Price (BTC):</string>
+    <string name="change_1h">1h change:</string>
+    <string name="change_24h">24h change:</string>
+    <string name="change_7d">7d change:</string>
+    <string name="volume_24h">24h volume:</string>
+    <string name="market_cap">Market cap (%s):</string>
+    <string name="total_supply">Total supply:</string>
+    <string name="available_supply">Available supply:</string>
+
+    <string name="error_general">Something went wrong!</string>
+    <string name="empty_message">No coins found!</string>
+
+    <string name="settings_title">Settings</string>
+
 </resources>

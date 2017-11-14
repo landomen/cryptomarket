@@ -17,6 +17,7 @@ import si.lanisnik.cryptomarket.di.scopes.PerApplication;
 @PerApplication
 @Component(modules = {
         ApplicationModule.class,
+        ActivityBindingModule.class,
         NetModule.class,
         CurrencyRepositoryModule.class,
         AndroidInjectionModule.class})
