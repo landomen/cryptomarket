@@ -3,6 +3,8 @@ package si.lanisnik.cryptomarket.di;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import si.lanisnik.cryptomarket.di.scopes.PerActivity;
+import si.lanisnik.cryptomarket.ui.cryptodetails.CryptoDetailsActivity;
+import si.lanisnik.cryptomarket.ui.cryptodetails.module.CryptoDetailsModule;
 import si.lanisnik.cryptomarket.ui.cryptolist.CryptoListActivity;
 import si.lanisnik.cryptomarket.ui.cryptolist.module.CryptoListModule;
 
@@ -16,5 +18,9 @@ public abstract class ActivityBindingModule {
     @PerActivity
     @ContributesAndroidInjector(modules = CryptoListModule.class)
     abstract CryptoListActivity cryptoListActivity();
+
+    @PerActivity
+    @ContributesAndroidInjector(modules = CryptoDetailsModule.class)
+    abstract CryptoDetailsActivity cryptoDetailsActivity();
 
 }
