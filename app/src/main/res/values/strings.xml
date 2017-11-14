@@ -17,4 +17,6 @@
     <string name="error_general">Something went wrong!</string>
     <string name="empty_message">No coins found!</string>
 
+    <string name="settings_title">Settings</string>
+
 </resources>
