@@ -7,6 +7,8 @@ import si.lanisnik.cryptomarket.ui.cryptodetails.CryptoDetailsActivity;
 import si.lanisnik.cryptomarket.ui.cryptodetails.module.CryptoDetailsModule;
 import si.lanisnik.cryptomarket.ui.cryptolist.CryptoListActivity;
 import si.lanisnik.cryptomarket.ui.cryptolist.module.CryptoListModule;
+import si.lanisnik.cryptomarket.ui.settings.SettingsActivity;
+import si.lanisnik.cryptomarket.ui.settings.module.SettingsModule;
 
 /**
  * Created by Domen Lanišnik on 13/11/2017.
@@ -22,5 +24,9 @@ public abstract class ActivityBindingModule {
     @PerActivity
     @ContributesAndroidInjector(modules = CryptoDetailsModule.class)
     abstract CryptoDetailsActivity cryptoDetailsActivity();
+
+    @PerActivity
+    @ContributesAndroidInjector(modules = SettingsModule.class)
+    abstract SettingsActivity settingsActivity();
 
 }

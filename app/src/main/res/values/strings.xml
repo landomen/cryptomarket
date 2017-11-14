@@ -18,5 +18,7 @@
     <string name="empty_message">No coins found!</string>
 
     <string name="settings_title">Settings</string>
+    <string name="settings_currency">Fiat currency:</string>
+    <string name="settings_limit">Limit:</string>
 
 </resources>

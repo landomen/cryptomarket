@@ -29,6 +29,7 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
         CurrencyRecyclerAdapter.OnCurrencySelectedListener, SwipeRefreshLayout.OnRefreshListener {
 
     private static final int REQUEST_CODE_DETAILS = 1984;
+    private static final int REQUST_CODE_SETTINGS = 1975;
 
     @BindView(R.id.crypto_list_swipe_refresh_layout)
     protected SwipeRefreshLayout swipeRefreshLayout;
@@ -98,6 +99,11 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
     @Override
     public void hideLoading() {
         swipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    public void openSettings() {
+        navigator.navigateToSettings(this, REQUST_CODE_SETTINGS);
     }
 
     @Override

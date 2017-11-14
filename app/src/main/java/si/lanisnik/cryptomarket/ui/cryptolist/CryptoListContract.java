@@ -30,6 +30,8 @@ public interface CryptoListContract {
         void showLoading();
 
         void hideLoading();
+
+        void openSettings();
     }
 
     interface Presenter extends BasePresenter<View> {

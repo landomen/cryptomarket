@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_normal"
+        android:layout_marginTop="@dimen/space_normal"
+        android:text="@string/settings_currency" />
+
+    <Spinner
+        android:id="@+id/settings_currency_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/settings_currency_spinner_height"
+        android:layout_marginBottom="@dimen/space_normal"
+        android:layout_marginStart="@dimen/space_normal"
+        android:minWidth="@dimen/settings_currency_spinner_width" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_normal"
+        android:text="@string/settings_limit" />
+
+    <EditText
+        android:id="@+id/settings_limit_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/space_normal"
+        android:inputType="number"
+        android:minWidth="@dimen/settings_currency_edit_width" />
+
+</LinearLayout>

@@ -5,4 +5,8 @@
 
     <dimen name="recycler_item_padding">20dp</dimen>
 
+    <dimen name="settings_currency_spinner_height">50dp</dimen>
+    <dimen name="settings_currency_spinner_width">150dp</dimen>
+    <dimen name="settings_currency_edit_width">150dp</dimen>
+
 </resources>

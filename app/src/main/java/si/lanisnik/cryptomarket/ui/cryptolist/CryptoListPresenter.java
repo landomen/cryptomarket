@@ -51,7 +51,7 @@ public class CryptoListPresenter implements CryptoListContract.Presenter {
 
     @Override
     public void onSettingsClicked() {
-        // TODO
+        view.openSettings();
     }
 
     @Override

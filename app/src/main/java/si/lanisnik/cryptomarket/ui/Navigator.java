@@ -9,6 +9,7 @@ import javax.inject.Inject;
 
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.cryptodetails.CryptoDetailsActivity;
+import si.lanisnik.cryptomarket.ui.settings.SettingsActivity;
 
 /**
  * Created by Domen Lanišnik on 14/11/2017.
@@ -24,6 +25,11 @@ public class Navigator {
         Intent detailsIntent = new Intent(activity, CryptoDetailsActivity.class);
         detailsIntent.putExtra(CryptoDetailsActivity.EXTRA_CRYPTO_CURRENCY, Parcels.wrap(currency));
         activity.startActivityForResult(detailsIntent, requestCode);
+    }
+
+    public void navigateToSettings(Activity activity, int requestCode) {
+        Intent settingsIntent = new Intent(activity, SettingsActivity.class);
+        activity.startActivityForResult(settingsIntent, requestCode);
     }
 
 }
