@@ -20,12 +20,15 @@ import butterknife.ButterKnife;
 import dagger.android.AndroidInjection;
 import si.lanisnik.cryptomarket.R;
 import si.lanisnik.cryptomarket.data.entities.FiatCurrencyType;
+import si.lanisnik.cryptomarket.ui.Navigator;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.common.util.CurrencyConverter;
 import si.lanisnik.cryptomarket.ui.cryptolist.adapter.CurrencyRecyclerAdapter;
 
 public class CryptoListActivity extends AppCompatActivity implements CryptoListContract.View,
         CurrencyRecyclerAdapter.OnCurrencySelectedListener, SwipeRefreshLayout.OnRefreshListener {
+
+    private static final int REQUEST_CODE_DETAILS = 1984;
 
     @BindView(R.id.crypto_list_swipe_refresh_layout)
     protected SwipeRefreshLayout swipeRefreshLayout;
@@ -38,6 +41,8 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
 
     @Inject
     CryptoListPresenter presenter;
+    @Inject
+    Navigator navigator;
     private CurrencyRecyclerAdapter currencyAdapter;
 
     @Override
@@ -97,7 +102,7 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
 
     @Override
     public void onCurrencySelected(CryptoCurrency currency) {
-        // TODO
+        navigator.navigateToDetails(this, currency, REQUEST_CODE_DETAILS);
     }
 
     @Override

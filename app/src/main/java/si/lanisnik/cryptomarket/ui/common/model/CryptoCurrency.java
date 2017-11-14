@@ -62,75 +62,151 @@ public class CryptoCurrency {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSymbol() {
         return symbol;
     }
 
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
     public String getRank() {
         return rank;
+    }
+
+    public void setRank(String rank) {
+        this.rank = rank;
     }
 
     public String getPriceUsd() {
         return priceUsd;
     }
 
+    public void setPriceUsd(String priceUsd) {
+        this.priceUsd = priceUsd;
+    }
+
     public String getPriceBtc() {
         return priceBtc;
+    }
+
+    public void setPriceBtc(String priceBtc) {
+        this.priceBtc = priceBtc;
     }
 
     public String getPriceEur() {
         return priceEur;
     }
 
+    public void setPriceEur(String priceEur) {
+        this.priceEur = priceEur;
+    }
+
     public String getPriceCny() {
         return priceCny;
+    }
+
+    public void setPriceCny(String priceCny) {
+        this.priceCny = priceCny;
     }
 
     public String getVolume24hUsd() {
         return volume24hUsd;
     }
 
+    public void setVolume24hUsd(String volume24hUsd) {
+        this.volume24hUsd = volume24hUsd;
+    }
+
     public String getVolume24hEur() {
         return volume24hEur;
+    }
+
+    public void setVolume24hEur(String volume24hEur) {
+        this.volume24hEur = volume24hEur;
     }
 
     public String getVolume24hCny() {
         return volume24hCny;
     }
 
+    public void setVolume24hCny(String volume24hCny) {
+        this.volume24hCny = volume24hCny;
+    }
+
     public String getMarketCapUsd() {
         return marketCapUsd;
+    }
+
+    public void setMarketCapUsd(String marketCapUsd) {
+        this.marketCapUsd = marketCapUsd;
     }
 
     public String getMarketCapEur() {
         return marketCapEur;
     }
 
+    public void setMarketCapEur(String marketCapEur) {
+        this.marketCapEur = marketCapEur;
+    }
+
     public String getMarketCapCny() {
         return marketCapCny;
+    }
+
+    public void setMarketCapCny(String marketCapCny) {
+        this.marketCapCny = marketCapCny;
     }
 
     public String getAvailableSupply() {
         return availableSupply;
     }
 
+    public void setAvailableSupply(String availableSupply) {
+        this.availableSupply = availableSupply;
+    }
+
     public String getTotalSupply() {
         return totalSupply;
+    }
+
+    public void setTotalSupply(String totalSupply) {
+        this.totalSupply = totalSupply;
     }
 
     public String getPercentChange1h() {
         return percentChange1h;
     }
 
+    public void setPercentChange1h(String percentChange1h) {
+        this.percentChange1h = percentChange1h;
+    }
+
     public String getPercentChange24h() {
         return percentChange24h;
     }
 
+    public void setPercentChange24h(String percentChange24h) {
+        this.percentChange24h = percentChange24h;
+    }
+
     public String getPercentChange7d() {
         return percentChange7d;
+    }
+
+    public void setPercentChange7d(String percentChange7d) {
+        this.percentChange7d = percentChange7d;
     }
 }
