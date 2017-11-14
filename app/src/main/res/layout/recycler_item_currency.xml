@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:padding="@dimen/recycler_item_padding">
+
+    <si.lanisnik.cryptomarket.ui.common.view.SingleDetailView
+        android:id="@+id/currency_rank_detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <si.lanisnik.cryptomarket.ui.common.view.SingleDetailView
+        android:id="@+id/currency_symbol_detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <si.lanisnik.cryptomarket.ui.common.view.SingleDetailView
+        android:id="@+id/currency_price_detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <si.lanisnik.cryptomarket.ui.common.view.SingleDetailView
+        android:id="@+id/currency_24h_change_detail_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
