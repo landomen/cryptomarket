@@ -20,5 +20,6 @@
     <string name="settings_title">Settings</string>
     <string name="settings_currency">Fiat currency:</string>
     <string name="settings_limit">Limit:</string>
+    <string name="settings_saved">Settings were saved!</string>
 
 </resources>

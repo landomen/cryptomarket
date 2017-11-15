@@ -4,11 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import javax.inject.Inject;
 
@@ -16,12 +15,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import dagger.android.AndroidInjection;
 import si.lanisnik.cryptomarket.R;
+import si.lanisnik.cryptomarket.ui.Navigator;
+import si.lanisnik.cryptomarket.ui.settings.model.SettingsResult;
 
 /**
  * Created by Domen Lanišnik on 15/11/2017.
  * domen.lanisnik@gmail.com
  */
-public class SettingsActivity extends AppCompatActivity implements SettingsContract.View, AdapterView.OnItemSelectedListener {
+public class SettingsActivity extends AppCompatActivity implements SettingsContract.View {
 
     @BindView(R.id.settings_currency_spinner)
     protected Spinner currencySpinner;
@@ -34,6 +35,8 @@ public class SettingsActivity extends AppCompatActivity implements SettingsContr
 
     @Inject
     SettingsContract.Presenter presenter;
+    @Inject
+    Navigator navigator;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -51,7 +54,7 @@ public class SettingsActivity extends AppCompatActivity implements SettingsContr
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        toolbar.setNavigationOnClickListener(v -> presenter.onBackPressed());
+        toolbar.setNavigationOnClickListener(v -> onBackPressed());
     }
 
     @Override
@@ -59,22 +62,31 @@ public class SettingsActivity extends AppCompatActivity implements SettingsContr
         ArrayAdapter<String> currencyAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, currencies);
         currencyAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         currencySpinner.setAdapter(currencyAdapter);
-        currencySpinner.setOnItemSelectedListener(this);
     }
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        presenter.onCurrencySelected(position);
+    public void setCurrencySpinnerPosition(int position) {
+        currencySpinner.setSelection(position);
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+    public void setLimitValue(int limit) {
+        limitEditText.setText(String.valueOf(limit));
+    }
 
+    @Override
+    public void showSaveMessage() {
+        Toast.makeText(this, R.string.settings_saved, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void closeActivityWithResult(SettingsResult result) {
+        navigator.navigateBackWithSettingsResult(this, result);
     }
 
     @Override
     public void onBackPressed() {
-        presenter.onBackPressed();
+        presenter.onBackPressed(currencySpinner.getSelectedItemPosition(), limitEditText.getText().toString());
     }
 
     @Override
