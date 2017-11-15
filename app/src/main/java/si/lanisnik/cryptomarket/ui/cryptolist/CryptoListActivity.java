@@ -1,6 +1,9 @@
 package si.lanisnik.cryptomarket.ui.cryptolist;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
@@ -10,6 +13,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -21,6 +26,7 @@ import dagger.android.AndroidInjection;
 import si.lanisnik.cryptomarket.R;
 import si.lanisnik.cryptomarket.data.entities.FiatCurrencyType;
 import si.lanisnik.cryptomarket.ui.Navigator;
+import si.lanisnik.cryptomarket.ui.common.constants.ActivityConstants;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.common.util.CurrencyConverter;
 import si.lanisnik.cryptomarket.ui.cryptolist.adapter.CurrencyRecyclerAdapter;
@@ -29,7 +35,7 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
         CurrencyRecyclerAdapter.OnCurrencySelectedListener, SwipeRefreshLayout.OnRefreshListener {
 
     private static final int REQUEST_CODE_DETAILS = 1984;
-    private static final int REQUST_CODE_SETTINGS = 1975;
+    private static final int REQUEST_CODE_SETTINGS = 1975;
 
     @BindView(R.id.crypto_list_swipe_refresh_layout)
     protected SwipeRefreshLayout swipeRefreshLayout;
@@ -103,7 +109,7 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
 
     @Override
     public void openSettings() {
-        navigator.navigateToSettings(this, REQUST_CODE_SETTINGS);
+        navigator.navigateToSettings(this, REQUEST_CODE_SETTINGS);
     }
 
     @Override
@@ -129,6 +135,19 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_SETTINGS || requestCode == REQUEST_CODE_DETAILS
+                && resultCode == Activity.RESULT_OK && data != null
+                && data.hasExtra(ActivityConstants.EXTRA_SETTINGS_RESULT)) {
+            Parcelable result = data.getParcelableExtra(ActivityConstants.EXTRA_SETTINGS_RESULT);
+            if (result != null) {
+                presenter.onSettingsResult(Parcels.unwrap(result));
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override

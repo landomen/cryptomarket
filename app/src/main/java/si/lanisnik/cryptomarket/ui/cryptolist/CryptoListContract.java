@@ -7,6 +7,7 @@ import si.lanisnik.cryptomarket.ui.common.BasePresenter;
 import si.lanisnik.cryptomarket.ui.common.BaseView;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.common.util.CurrencyConverter;
+import si.lanisnik.cryptomarket.ui.settings.model.SettingsResult;
 
 /**
  * Created by Domen Lanišnik on 13/11/2017.
@@ -40,5 +41,7 @@ public interface CryptoListContract {
         void update();
 
         void onSettingsClicked();
+
+        void onSettingsResult(SettingsResult result);
     }
 }

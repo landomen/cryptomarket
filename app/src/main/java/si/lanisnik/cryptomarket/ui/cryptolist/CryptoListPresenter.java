@@ -13,6 +13,7 @@ import si.lanisnik.cryptomarket.data.source.CurrencyRepository;
 import si.lanisnik.cryptomarket.ui.common.mapper.CryptoCurrencyMapper;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.common.util.CurrencyConverter;
+import si.lanisnik.cryptomarket.ui.settings.model.SettingsResult;
 
 /**
  * Created by Domen Lanišnik on 13/11/2017.
@@ -52,6 +53,14 @@ public class CryptoListPresenter implements CryptoListContract.Presenter {
     @Override
     public void onSettingsClicked() {
         view.openSettings();
+    }
+
+    @Override
+    public void onSettingsResult(SettingsResult result) {
+        // update data if needed
+        if (result.isLimitChanged() || result.isCurrencyChanged()) {
+            update();
+        }
     }
 
     @Override
