@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -32,7 +33,7 @@ import si.lanisnik.cryptomarket.ui.common.util.CurrencyConverter;
 import si.lanisnik.cryptomarket.ui.cryptolist.adapter.CurrencyRecyclerAdapter;
 
 public class CryptoListActivity extends AppCompatActivity implements CryptoListContract.View,
-        CurrencyRecyclerAdapter.OnCurrencySelectedListener, SwipeRefreshLayout.OnRefreshListener {
+        CurrencyRecyclerAdapter.OnCurrencySelectedListener, SwipeRefreshLayout.OnRefreshListener, SearchView.OnQueryTextListener {
 
     private static final int REQUEST_CODE_DETAILS = 1984;
     private static final int REQUEST_CODE_SETTINGS = 1975;
@@ -125,6 +126,8 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_list, menu);
+        SearchView searchView = (SearchView) menu.findItem(R.id.menu_list_search).getActionView();
+        searchView.setOnQueryTextListener(this);
         return true;
     }
 
@@ -135,6 +138,17 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        presenter.onSearch(newText.trim());
+        return false;
     }
 
     @Override
@@ -160,5 +174,4 @@ public class CryptoListActivity extends AppCompatActivity implements CryptoListC
         presenter.setView(this);
         presenter.initialize();
     }
-
 }

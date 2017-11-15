@@ -1,6 +1,7 @@
 package si.lanisnik.cryptomarket.ui.cryptolist.adapter;
 
 import android.content.Context;
+import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import si.lanisnik.cryptomarket.data.entities.FiatCurrencyType;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.common.util.CurrencyConverter;
 import si.lanisnik.cryptomarket.ui.cryptolist.holder.CurrencyViewHolder;
+import si.lanisnik.cryptomarket.ui.cryptolist.util.CurrencyDiffCallback;
 
 /**
  * Created by Domen Lanišnik on 14/11/2017.
@@ -66,8 +68,9 @@ public class CurrencyRecyclerAdapter extends RecyclerView.Adapter<CurrencyViewHo
     }
 
     public void setCurrencies(List<CryptoCurrency> currencies) {
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(new CurrencyDiffCallback(this.currencies, currencies));
         this.currencies = currencies;
-        notifyDataSetChanged();
+        diffResult.dispatchUpdatesTo(this);
     }
 
     public void setFiatCurrency(FiatCurrencyType fiatCurrency) {

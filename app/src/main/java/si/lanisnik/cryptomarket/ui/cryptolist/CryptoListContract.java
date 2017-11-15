@@ -43,5 +43,7 @@ public interface CryptoListContract {
         void onSettingsClicked();
 
         void onSettingsResult(SettingsResult result);
+
+        void onSearch(String query);
     }
 }

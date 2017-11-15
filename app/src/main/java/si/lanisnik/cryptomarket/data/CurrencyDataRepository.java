@@ -26,8 +26,8 @@ public class CurrencyDataRepository implements CurrencyRepository {
     public CurrencyDataRepository(CurrencyLocal localDataSource, CurrencyRemote remoteDataSource) {
         this.localDataSource = localDataSource;
         this.remoteDataSource = remoteDataSource;
-        currentLimit = getResultLimit();
-        currentFiatCurrency = getSelectedFiatCurrency();
+        currentLimit = loadSavedLimit();
+        currentFiatCurrency = loadSavedFiatCurrency();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CurrencyDataRepository implements CurrencyRepository {
 
     @Override
     public int getResultLimit() {
-        return localDataSource.getLimit();
+        return currentLimit;
     }
 
     @Override
@@ -59,6 +59,14 @@ public class CurrencyDataRepository implements CurrencyRepository {
 
     @Override
     public FiatCurrencyType getSelectedFiatCurrency() {
+        return currentFiatCurrency;
+    }
+
+    private int loadSavedLimit() {
+        return localDataSource.getLimit();
+    }
+
+    private FiatCurrencyType loadSavedFiatCurrency() {
         return localDataSource.getSelectedFiatCurrency();
     }
 }

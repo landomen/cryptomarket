@@ -13,6 +13,7 @@ import si.lanisnik.cryptomarket.data.source.CurrencyRepository;
 import si.lanisnik.cryptomarket.ui.common.mapper.CryptoCurrencyMapper;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.common.util.CurrencyConverter;
+import si.lanisnik.cryptomarket.ui.cryptolist.util.CurrencySearchFilter;
 import si.lanisnik.cryptomarket.ui.settings.model.SettingsResult;
 
 /**
@@ -25,13 +26,18 @@ public class CryptoListPresenter implements CryptoListContract.Presenter {
     private CryptoCurrencyMapper modelMapper;
     private CurrencyConverter currencyConverter;
     private CryptoListContract.View view;
+    private CurrencySearchFilter searchFilter;
+    private List<CryptoCurrency> currencies;
     private Disposable disposable;
 
     @Inject
-    public CryptoListPresenter(CurrencyRepository repository, CurrencyConverter currencyConverter, CryptoCurrencyMapper modelMapper) {
+    public CryptoListPresenter(CurrencyRepository repository, CurrencyConverter currencyConverter,
+                               CryptoCurrencyMapper modelMapper, CurrencySearchFilter searchFilter) {
+        this.currencies = new ArrayList<>();
         this.repository = repository;
         this.modelMapper = modelMapper;
         this.currencyConverter = currencyConverter;
+        this.searchFilter = searchFilter;
     }
 
     @Override
@@ -61,6 +67,12 @@ public class CryptoListPresenter implements CryptoListContract.Presenter {
         if (result.isLimitChanged() || result.isCurrencyChanged()) {
             update();
         }
+    }
+
+    @Override
+    public void onSearch(String query) {
+        List<CryptoCurrency> filteredCurrencies = searchFilter.filterCurrencies(this.currencies, query);
+        view.showCurrencies(filteredCurrencies, repository.getSelectedFiatCurrency());
     }
 
     @Override
@@ -96,6 +108,7 @@ public class CryptoListPresenter implements CryptoListContract.Presenter {
     }
 
     private void onFetchingSuccess(List<CryptoCurrency> currencies) {
+        this.currencies = currencies;
         if (view != null) {
             view.showCurrencies(currencies, repository.getSelectedFiatCurrency());
             view.hideLoading();
