@@ -68,9 +68,6 @@ dependencies {
     implementation "org.parceler:parceler-api:$rootProject.parcelerVersion"
     annotationProcessor "org.parceler:parceler:$rootProject.parcelerVersion"
 
-    // Timber
-    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
-
     // Testing
     testImplementation "junit:junit:$rootProject.junitVersion"
     testImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
