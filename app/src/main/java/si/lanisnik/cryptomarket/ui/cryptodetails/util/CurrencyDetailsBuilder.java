@@ -38,6 +38,8 @@ public class CurrencyDetailsBuilder {
         details.add(new SingleDetail(context.getString(R.string.change_1h), currency.getPercentChange1h()));
         details.add(new SingleDetail(context.getString(R.string.change_24h), currency.getPercentChange24h()));
         details.add(new SingleDetail(context.getString(R.string.change_7d), currency.getPercentChange7d()));
+        details.add(new SingleDetail(context.getString(R.string.total_supply), currency.getTotalSupply()));
+        details.add(new SingleDetail(context.getString(R.string.available_supply), currency.getAvailableSupply()));
         return details;
     }
 
