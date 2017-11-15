@@ -30,9 +30,9 @@ public class CurrencyDetailsBuilder {
         details.add(new SingleDetail(context.getString(R.string.rank), currency.getRank()));
         details.add(new SingleDetail(context.getString(R.string.name), currency.getName()));
         details.add(new SingleDetail(context.getString(R.string.symbol), currency.getSymbol()));
-        details.add(new SingleDetail(context.getString(R.string.price_fiat), converter.getPrice(currency, fiatCurrency)));
-        details.add(new SingleDetail(context.getString(R.string.volume_24h), converter.getVolume(currency, fiatCurrency)));
-        details.add(new SingleDetail(context.getString(R.string.market_cap), converter.getMarketCap(currency, fiatCurrency)));
+        details.add(new SingleDetail(context.getString(R.string.price_fiat, fiatCurrency.name()), converter.getPrice(currency, fiatCurrency)));
+        details.add(new SingleDetail(context.getString(R.string.volume_24h, fiatCurrency.name()), converter.getVolume(currency, fiatCurrency)));
+        details.add(new SingleDetail(context.getString(R.string.market_cap, fiatCurrency.name()), converter.getMarketCap(currency, fiatCurrency)));
         details.add(new SingleDetail(context.getString(R.string.price_btc), currency.getPriceBtc()));
         details.add(new SingleDetail(context.getString(R.string.change_1h), currency.getPercentChange1h()));
         details.add(new SingleDetail(context.getString(R.string.change_24h), currency.getPercentChange24h()));
