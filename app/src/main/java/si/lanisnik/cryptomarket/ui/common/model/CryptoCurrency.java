@@ -2,6 +2,8 @@ package si.lanisnik.cryptomarket.ui.common.model;
 
 import org.parceler.Parcel;
 
+import java.util.Objects;
+
 /**
  * Created by Domen Lanišnik on 14/11/2017.
  * domen.lanisnik@gmail.com
@@ -208,5 +210,38 @@ public class CryptoCurrency {
 
     public void setPercentChange7d(String percentChange7d) {
         this.percentChange7d = percentChange7d;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CryptoCurrency that = (CryptoCurrency) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(symbol, that.symbol) &&
+                Objects.equals(rank, that.rank) &&
+                Objects.equals(priceUsd, that.priceUsd) &&
+                Objects.equals(priceBtc, that.priceBtc) &&
+                Objects.equals(priceEur, that.priceEur) &&
+                Objects.equals(priceCny, that.priceCny) &&
+                Objects.equals(volume24hUsd, that.volume24hUsd) &&
+                Objects.equals(volume24hEur, that.volume24hEur) &&
+                Objects.equals(volume24hCny, that.volume24hCny) &&
+                Objects.equals(marketCapUsd, that.marketCapUsd) &&
+                Objects.equals(marketCapEur, that.marketCapEur) &&
+                Objects.equals(marketCapCny, that.marketCapCny) &&
+                Objects.equals(availableSupply, that.availableSupply) &&
+                Objects.equals(totalSupply, that.totalSupply) &&
+                Objects.equals(percentChange1h, that.percentChange1h) &&
+                Objects.equals(percentChange24h, that.percentChange24h) &&
+                Objects.equals(percentChange7d, that.percentChange7d);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, symbol, rank, priceUsd, priceBtc, priceEur, priceCny,
+                volume24hUsd, volume24hEur, volume24hCny, marketCapUsd, marketCapEur, marketCapCny,
+                availableSupply, totalSupply, percentChange1h, percentChange24h, percentChange7d);
     }
 }

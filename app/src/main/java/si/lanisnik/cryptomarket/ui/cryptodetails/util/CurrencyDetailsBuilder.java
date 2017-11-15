@@ -1,4 +1,4 @@
-package si.lanisnik.cryptomarket.ui.common.util;
+package si.lanisnik.cryptomarket.ui.cryptodetails.util;
 
 import android.content.Context;
 
@@ -11,6 +11,7 @@ import si.lanisnik.cryptomarket.R;
 import si.lanisnik.cryptomarket.data.entities.FiatCurrencyType;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.common.model.SingleDetail;
+import si.lanisnik.cryptomarket.ui.common.util.CurrencyConverter;
 
 /**
  * Created by Domen Lanišnik on 14/11/2017.

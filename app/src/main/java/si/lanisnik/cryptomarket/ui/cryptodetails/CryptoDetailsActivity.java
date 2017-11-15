@@ -29,7 +29,7 @@ import si.lanisnik.cryptomarket.ui.Navigator;
 import si.lanisnik.cryptomarket.ui.common.constants.ActivityConstants;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
 import si.lanisnik.cryptomarket.ui.common.model.SingleDetail;
-import si.lanisnik.cryptomarket.ui.common.util.CurrencyDetailsBuilder;
+import si.lanisnik.cryptomarket.ui.cryptodetails.util.CurrencyDetailsBuilder;
 import si.lanisnik.cryptomarket.ui.cryptodetails.adapter.CurrencyDetailsRecyclerAdapter;
 import si.lanisnik.cryptomarket.ui.settings.model.SettingsResult;
 
