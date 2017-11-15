@@ -8,6 +8,7 @@ import io.reactivex.schedulers.Schedulers;
 import si.lanisnik.cryptomarket.data.source.CurrencyRepository;
 import si.lanisnik.cryptomarket.ui.common.mapper.CryptoCurrencyMapper;
 import si.lanisnik.cryptomarket.ui.common.model.CryptoCurrency;
+import si.lanisnik.cryptomarket.ui.settings.model.SettingsResult;
 
 /**
  * Created by Domen Lanišnik on 14/11/2017.
@@ -20,6 +21,7 @@ public class CryptoDetailsPresenter implements CryptoDetailsContract.Presenter {
     private Disposable disposable;
     private CryptoCurrency currency;
     private CryptoCurrencyMapper mapper;
+    private SettingsResult settingsResult;
 
     @Inject
     public CryptoDetailsPresenter(CurrencyRepository repository, CryptoCurrencyMapper mapper) {
@@ -48,7 +50,25 @@ public class CryptoDetailsPresenter implements CryptoDetailsContract.Presenter {
 
     @Override
     public void onSettingsClicked() {
-        // TODO
+        view.openSettings();
+    }
+
+    @Override
+    public void onSettingsResult(SettingsResult result) {
+        updateSettingsResult(result);
+        // update data if needed
+        if (result.isCurrencyChanged()) {
+            update();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (settingsResult != null) {
+            view.closeActivityWithResult(settingsResult);
+        } else {
+            view.closeActivity();
+        }
     }
 
     @Override
@@ -79,6 +99,20 @@ public class CryptoDetailsPresenter implements CryptoDetailsContract.Presenter {
         if (view != null) {
             view.showLoadingError();
             view.hideLoading();
+        }
+    }
+
+    private void updateSettingsResult(SettingsResult result) {
+        if (settingsResult == null) {
+            settingsResult = result;
+        } else {
+            // save only positive values, since result will be propagated to list activity
+            if (result.isCurrencyChanged() && !settingsResult.isCurrencyChanged()) {
+                settingsResult.setCurrencyChanged(true);
+            }
+            if (result.isLimitChanged() && !settingsResult.isLimitChanged()) {
+                settingsResult.setLimitChanged(true);
+            }
         }
     }
 
